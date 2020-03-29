@@ -5,7 +5,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.martychen.demo.jpa</groupId>
-    <artifactId>main</artifactId>
+    <artifactId>jpa-demo</artifactId>
     <version>0.1-SNAPSHOT</version>
 
     <build>
@@ -18,7 +18,18 @@
                     <release>11</release>
                 </configuration>
             </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-jar-plugin</artifactId>
+                <configuration>
+                    <archive>
+                        <manifest>
+                            <addClasspath>true</addClasspath>
+                            <mainClass>com.martychen.demo.jpa.Demo</mainClass>
+                        </manifest>
+                    </archive>
+                </configuration>
+            </plugin>
         </plugins>
-
     </build>
 </project>
