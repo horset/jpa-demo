@@ -1,8 +1,8 @@
 package com.martychen.demo.jpa;
 
+import com.martychen.demo.jpa.persistence.daos.BookDao;
 import com.martychen.demo.jpa.persistence.entities.Book;
 
-import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 
@@ -30,17 +30,14 @@ public class Demo {
     }
 
     private static void persistBook(Book book) {
-        EntityManager entityManager = entityManagerFactory.createEntityManager();
-        entityManager.getTransaction().begin();
-        entityManager.persist(book);
-        entityManager.getTransaction().commit();
-        entityManager.close();
+        BookDao dao = new BookDao(entityManagerFactory);
+        dao.persist(book);
     }
 
     private static void showPersistedBookWithId(long id) {
-        EntityManager entityManager = entityManagerFactory.createEntityManager();
-        Book result = entityManager.find(Book.class, id);
+        BookDao dao = new BookDao(entityManagerFactory);
+        Book result = dao.find(id);
         System.out.println(result);
-        entityManager.close();
     }
+
 }
