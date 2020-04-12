@@ -36,7 +36,7 @@ public class Book {
 
     @Override
     public String toString() {
-        return "Expense{" +
+        return "Book{" +
                 "id=" + id +
                 ", title='" + title + '\'' +
                 ", description='" + description + '\'' +
